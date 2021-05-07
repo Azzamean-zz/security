@@ -63,20 +63,20 @@ jQuery(document).ready(function ($) {
     const date = new Date(timestamp * 1000);
     const month = date.toLocaleString('default', {
       month: 'long'
-    });
+    })
     let options = {
       year: 'numeric',
       timeZoneName: 'short',
       hour: 'numeric',
       minute: 'numeric'
-    };
+    }
     return month + ', ' + date.getDate() + ' ' + date.toLocaleDateString('en-GB', options);
   }
 
 
   // LETS GET THE DATA
   getProjects().then(data => {
-    if (data && data.projects)
+    if (data && data.projects) {
       data.projects.forEach((project, index) => {
 
         // FIRST
@@ -109,7 +109,7 @@ jQuery(document).ready(function ($) {
               document.getElementById("last-scanned-date-0").innerHTML = dateFormatter(project[data.projects[0].projectId].updated_at);
               document.getElementById("total-repos-0").innerHTML = project[data.projects[0].projectId].total_repositories;
               document.getElementById("scanned-repos-0").innerHTML = project[data.projects[0].projectId].total_scanned_repositories;
-            });
+            })
           }
         }
 
@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
               document.getElementById("last-scanned-date-1").innerHTML = dateFormatter(project[data.projects[1].projectId].updated_at);
               document.getElementById("total-repos-1").innerHTML = project[data.projects[1].projectId].total_repositories;
               document.getElementById("scanned-repos-1").innerHTML = project[data.projects[1].projectId].total_scanned_repositories;
-            });
+            })
           }
         }
 
@@ -177,9 +177,10 @@ jQuery(document).ready(function ($) {
               document.getElementById("last-scanned-date-2").innerHTML = dateFormatter(project[data.projects[2].projectId].updated_at);
               document.getElementById("total-repos-2").innerHTML = project[data.projects[2].projectId].total_repositories;
               document.getElementById("scanned-repos-2").innerHTML = project[data.projects[2].projectId].total_scanned_repositories;
-            });
+            })
           }
         }
-      });
-  });
-});
+      })
+    }
+  })
+})
